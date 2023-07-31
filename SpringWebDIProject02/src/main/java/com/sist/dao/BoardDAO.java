@@ -1,6 +1,7 @@
 package com.sist.dao;
 import java.util.*;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -43,5 +44,42 @@ public class BoardDAO {
 		mapper.hitIncrement(no);
 		return mapper.boardDetailData(no);
 		
+	}
+	
+	// 수정하기
+//	@Select("SELECT no, name, subject, content "
+//			+ "FROM springBoard "
+//			+ "WHERE no = #{no}")
+	public BoardVO boardUpdateData(int no) {
+		
+		return mapper.boardUpdateData(no);
+	}
+	
+//	@Select("SELECT pwd FROM springBoard "
+//			+ "WHERE no = #{no}")
+//	@Update("UPDATE springBoard SET "
+//			+ "name=#{name}, subject=#{subject}, content={content} "
+//			+ "WHERE no = #{no}")
+	public boolean boardUpdate(BoardVO vo) {
+		boolean bCheck = false;
+		String db_pwd = mapper.boardGetPassword(vo.getNo());
+		if (db_pwd.equals(vo.getPwd())) {
+			bCheck = true;
+			mapper.boardUpdate(vo);
+		}
+		return bCheck;
+	}
+	
+	// 삭제하기
+//	@Delete("DELETE FROM springBoard "
+//			+ "WHERE no = #{no}")
+	public boolean boardDelete(int no, String pwd) {
+		boolean bCheck = false;
+		String db_pwd = mapper.boardGetPassword(no);
+		if (db_pwd.equals(pwd)) {
+			bCheck = true;
+			mapper.boardDelete(no);
+		}
+		return bCheck;
 	}
 }
