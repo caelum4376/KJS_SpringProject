@@ -46,7 +46,7 @@
 					}
 				}
 		}
-		// vue3 => vuex
+		/* vue3 => vuex */
 		Vue.createApp(myApp).mount('.container')
 	</script>
 </body>

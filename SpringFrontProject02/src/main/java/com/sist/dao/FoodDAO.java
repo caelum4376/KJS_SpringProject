@@ -25,7 +25,10 @@ public class FoodDAO {
 	}
 	
 	// 검색 ==> VueJS / ReactJS => 실시간
-	public FoodLocationVO foodFindData(int fno) {
-		return mapper.foodFindData(fno);
+	public List<FoodLocationVO> foodFindData(Map map) {
+		return mapper.foodFindData(map);
+	}
+	public int foodFindTotalPage(String address) {
+		return mapper.foodFindTotalPage(address);
 	}
 }
