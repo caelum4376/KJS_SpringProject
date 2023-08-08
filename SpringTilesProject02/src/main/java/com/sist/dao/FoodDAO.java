@@ -30,4 +30,12 @@ public class FoodDAO {
 	public CategoryVO foodCategoryInfoData(int cno) {
 		return mapper.foodCategoryInfoData(cno);
 	}
+	
+	public List<FoodVO> foodFindData(Map map) {
+		return mapper.foodFindData(map);
+	}
+	
+	public int foodFindTotalPage(String fd) {
+		return mapper.foodFindTotalPage(fd);
+	}
 }

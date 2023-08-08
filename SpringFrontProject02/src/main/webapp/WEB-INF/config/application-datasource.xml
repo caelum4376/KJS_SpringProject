@@ -37,7 +37,6 @@
 	<!-- SqlSessionFactory 생성 : getConnection, disConnection, selectList... -->
 	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="ds"
-		p:configLocation="/WEB-INF/config/Config.xml"
 	/>
 	<!-- Mapper구현 -->
 	<mybatis-spring:scan base-package="com.sist.mapper"/>

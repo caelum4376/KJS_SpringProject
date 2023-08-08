@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class SeoulVO {
 	private int no;
-	private String title, poster, meg, address;
+	private String title, poster, msg, address;
 }
