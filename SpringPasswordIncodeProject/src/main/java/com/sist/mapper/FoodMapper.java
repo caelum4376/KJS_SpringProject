@@ -7,4 +7,6 @@ public interface FoodMapper {
 	public CategoryVO foodCategoryInfoData(int cno);
 	
 	public List<FoodVO> foodListData(int cno);
+	
+	public FoodVO foodDetailData(int fno);
 }
