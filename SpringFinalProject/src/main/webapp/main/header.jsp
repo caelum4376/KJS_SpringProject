@@ -84,8 +84,8 @@
       </li>
       <li><a class="drop" href="#">커뮤니티</a>
         <ul>
-          <li><a href="pages/gallery.html">공지사항</a></li>
-          <li><a href="pages/full-width.html">자유게시판</a></li>
+          <li><a href="">공지사항</a></li>
+          <li><a href="../databoard/list.do">자유게시판</a></li>
         </ul>
       </li>
       <li><a href="../chat/chat.do">실시간 채팅</a></li>
@@ -99,6 +99,7 @@
 		data:{
 			login_id:'${id}',
 			login_pwd:'',
+			sessionId:null,
 			ck:true
 		},
 		methods:{
@@ -106,6 +107,8 @@
 				axios.get('../member/logout_vue.do')
 				.then(res=>{
 					location.href="../main/main.do"
+				}).catch(error=>{
+					console.log(error.response)
 				})
 			},
 			login:function(){
@@ -138,6 +141,8 @@
 						this.sessionId=res.data
 						location.href="../main/main.do"
 					}
+				}).catch(error=>{
+					console.log(error.response)
 				})
 			}
 		}

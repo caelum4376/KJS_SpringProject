@@ -108,9 +108,11 @@
 			cate_list:[]
 		},
 		mounted:function(){
-			axios.get('../food/food_category_vue.do').then(response=>{
+			axios.get('http://localhost/web/food/food_category_vue.do').then(response=>{
 				console.log(response.data)
 				this.cate_list = response.data
+			}).catch(error=>{
+				console.log(error.response)
 			})
 		}
 	})
